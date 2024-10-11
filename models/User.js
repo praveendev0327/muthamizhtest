@@ -19,7 +19,25 @@ const User = {
     const result = await db.query(QUERY, [firstname, lastname, email, image, company, work, url, address]);
     return result.insertId;
   },
+  createBannerByEmailQuery: async (email, image) => {
+    const QUERY = `INSERT INTO mvbanners(email, image) VALUES(?,?)`;
 
+    const result = await db.query(QUERY, [email, image]);
+    return result.insertId;
+  },
+  createJobPostByEmailQuery: async (email, title, description) => {
+    const QUERY = `INSERT INTO mvjobpost(email, title, description) VALUES(?,?,?)`;
+
+    const result = await db.query(QUERY, [email, title, description]);
+    return result.insertId;
+  },
+
+  createCvByEmailQuery: async (email, name, cv) => {
+    const QUERY = `INSERT INTO mvcvs(email, name, cv) VALUES(?,?,?)`;
+
+    const result = await db.query(QUERY, [email, name, cv]);
+    return result.insertId;
+  },
 
   login: async (email, password) => {
     const sql = 'SELECT * FROM mvmembers WHERE email = ? AND password = ?';
