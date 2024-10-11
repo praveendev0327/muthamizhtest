@@ -89,15 +89,42 @@ const getUserById = async (req, res) => {
 
 const createMemberProfile = async (req, res) => {
     const { firstname, lastname, email, image, company, work, url, address} = req.body;
-
     try {
-      // Check if user exists
       const existingUser = await User.findByEmailProfile(email);
       if (existingUser) {
         return res.status(400).json({ message: 'User already exists.' });
       }
       const userId = await User.createMemberProfileQuery(firstname, lastname, email, image, company, work, url, address);
-  
+      res.status(201).json({ message: 'User registered successfully.', userId });
+    } catch (err) {
+      res.status(500).json({ message: 'Server Error', error: err.message });
+    }
+  };
+
+  const createBannerByEmail = async (req, res) => {
+    const { email, image} = req.body;
+    try {
+      const userId = await User.createBannerByEmailQuery(email, image);
+      res.status(201).json({ message: 'User registered successfully.', userId });
+    } catch (err) {
+      res.status(500).json({ message: 'Server Error', error: err.message });
+    }
+  };
+
+  const createJobPostByEmail = async (req, res) => {
+    const { email, title, description} = req.body;
+    try {
+      const userId = await User.createJobPostByEmailQuery(email, title, description);
+      res.status(201).json({ message: 'User registered successfully.', userId });
+    } catch (err) {
+      res.status(500).json({ message: 'Server Error', error: err.message });
+    }
+  };
+
+  const createCvByEmail = async (req, res) => {
+    const {email, name, cv } = req.body;
+    try {
+      const userId = await User.createJobPostByEmailQuery(email, name, cv );
       res.status(201).json({ message: 'User registered successfully.', userId });
     } catch (err) {
       res.status(500).json({ message: 'Server Error', error: err.message });
@@ -149,5 +176,8 @@ module.exports = {
   createMemberProfile,
   getProfileByEmail,
   getBannerByEmail,
-  getCvByEmail
+  getCvByEmail,
+  createBannerByEmail,
+  createJobPostByEmail,
+  createCvByEmail
 };
