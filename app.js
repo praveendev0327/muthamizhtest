@@ -3,11 +3,15 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const db = require('./config/db');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
 // Import Routes
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
-
+//
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(cors());
 // Middleware
 app.use(express.json());
 
