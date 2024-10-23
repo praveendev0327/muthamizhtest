@@ -52,6 +52,28 @@ const eventRegisteration = async (req, res) => {
     }
   };
 
+  const luckydrawRegisteration = async (req, res) => {
+    const {name, email,  phone} = req.body;
+
+    try {
+      // Check if user exists
+      const existingUser = await User.findByEmailLuckydrawReg(email);
+      if (existingUser) {
+        return res.status(400).json({ message: 'User already exists.' });
+      }
+  
+      // Hash password
+      // const hashedPassword = await bcrypt.hashPassword(password);
+  
+      // Create user
+      const userId = await User.luckydrawRegisterationQuery(name, email,  phone);
+  
+      res.status(201).json({ message: 'User registered successfully.', userId });
+    } catch (err) {
+      res.status(500).json({ message: 'Server Error', error: err.message });
+    }
+  };
+
 const login = async (req, res) => {
   const { email, password } = req.body;
 
@@ -79,8 +101,21 @@ const login = async (req, res) => {
   }
 };
 
+
+const createAutoBoardBanner = async (req, res) => {
+  const { email, image} = req.body;
+  try {
+    const userId = await User.createAutoBoardBannerQuery(email, image);
+    res.status(201).json({ message: 'AutoBoardBanner added successfully.', userId });
+  } catch (err) {
+    res.status(500).json({ message: 'Server Error', error: err.message });
+  }
+};
+
 module.exports = {
   register,
   login,
-  eventRegisteration
+  eventRegisteration,
+  createAutoBoardBanner,
+  luckydrawRegisteration
 };
