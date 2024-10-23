@@ -1,7 +1,7 @@
 // routes/auth.js
 const express = require('express');
 const router = express.Router();
-const { register, login, eventRegisteration } = require('../controllers/authController');
+const { register, login, eventRegisteration, createAutoBoardBanner, luckydrawRegisteration } = require('../controllers/authController');
 
 // @route   POST /api/auth/register
 // @desc    Register a new user
@@ -9,6 +9,10 @@ const { register, login, eventRegisteration } = require('../controllers/authCont
 router.post('/register', register);
 //Event Registration
 router.post('/eventregister', eventRegisteration);
+//Lucky Draw Registration
+router.post('/luckydrawregister', luckydrawRegisteration);
+//AutoBoard 
+router.post('/createAutoBoardBanner', createAutoBoardBanner);
 
 // @route   POST /api/auth/login
 // @desc    Login user and return JWT
