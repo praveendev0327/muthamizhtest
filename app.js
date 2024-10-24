@@ -27,8 +27,8 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
     service: 'gmail', // Use 'gmail' or other email service
     auth: {
-      user: 'praveensubramaniyandev@gmail.com', // Your email
-      pass: 'brlu rflo phjn sllt', // Your email password (use App Passwords for better security)
+      user: 'muthamizhsangamevent2024@gmail.com', // Your email
+      pass: 'yuaj fjjp nxgm oizo', // Your email password (use App Passwords for better security)
     },
   });
 
@@ -61,7 +61,7 @@ Muthamil Sangam
 `;
   
     const mailOptions = {
-      from: 'praveensubramaniyandev@gmail.com',
+      from: 'muthamizhsangamevent2024@gmail.com',
       to,
       subject,
       text: emailBody,
