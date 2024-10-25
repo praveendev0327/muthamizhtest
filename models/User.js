@@ -61,6 +61,12 @@ const User = {
     const result = await db.query(QUERY, [name, email,  phone]);
     return result.insertId;
   },
+  BBARegisterationQuery: async (name, email,  phone) => {
+    const QUERY = `INSERT INTO brightboardads(name, email,  phone) VALUES(?,?,?)`;
+
+    const result = await db.query(QUERY, [name, email,  phone]);
+    return result.insertId;
+  },
   createMemberProfileQuery: async (
     firstname,
     lastname,
@@ -138,6 +144,12 @@ const User = {
 
   findByEmailLuckydrawReg: async (email) => {
     const sql = "SELECT * FROM luckydraw WHERE email = ?";
+    const users = await db.query(sql, [email]);
+    return users[0];
+  },
+
+  findByEmailRegBBA: async (email) => {
+    const sql = "SELECT * FROM brightboardads WHERE email = ?";
     const users = await db.query(sql, [email]);
     return users[0];
   },
