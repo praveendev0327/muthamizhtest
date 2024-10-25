@@ -1,7 +1,7 @@
 // routes/auth.js
 const express = require('express');
 const router = express.Router();
-const { register, login, eventRegisteration, createAutoBoardBanner, luckydrawRegisteration } = require('../controllers/authController');
+const { register, login, eventRegisteration, createAutoBoardBanner, luckydrawRegisteration, BBARegisteration } = require('../controllers/authController');
 
 // @route   POST /api/auth/register
 // @desc    Register a new user
@@ -11,6 +11,8 @@ router.post('/register', register);
 router.post('/eventregister', eventRegisteration);
 //Lucky Draw Registration
 router.post('/luckydrawregister', luckydrawRegisteration);
+//Brightboardads
+router.post('/brightboardads', BBARegisteration);
 //AutoBoard 
 router.post('/createAutoBoardBanner', createAutoBoardBanner);
 
