@@ -25,10 +25,18 @@ app.use(express.json());
 
 // Configure Nodemailer transport
 const transporter = nodemailer.createTransport({
+  service: 'gmail', // Use 'gmail' or other email service
+  auth: {
+    user: 'muthamizhsangamevent2024@gmail.com', // Your email
+    pass: 'yuaj fjjp nxgm oizo', // Your email password (use App Passwords for better security)
+  },
+});
+
+  const transporterBBA = nodemailer.createTransport({
     service: 'gmail', // Use 'gmail' or other email service
     auth: {
-      user: 'muthamizhsangamevent2024@gmail.com', // Your email
-      pass: 'yuaj fjjp nxgm oizo', // Your email password (use App Passwords for better security)
+      user: 'praveensubramaniyandev@gmail.com', // Your email
+      pass: 'brlu rflo phjn sllt', // Your email password (use App Passwords for better security)
     },
   });
 
@@ -77,6 +85,40 @@ Muthamil Sangam
     });
   });
   
+
+  app.post('/send-email-BBA', (req, res) => {
+    const { to, subject, name } = req.body;
+
+
+    const emailBody = `
+Dear ${name},
+
+Thank you for registering with BrightBoardAds! We’re excited to have you onboard and look forward to supporting your digital advertising needs.
+
+Our team will be reaching out within the next five working days to guide you through the software setup process. If you have any specific requirements or questions in the meantime, please feel free to reach out to us.
+
+Thank you once again for choosing BrightBoardAds. We’re here to ensure you have a seamless experience!
+
+Best regards,
+The BrightBoardAds Team
+`;
+  
+    const mailOptions = {
+      from: 'praveensubramaniyandev@gmail.com',
+      to,
+      subject,
+      text: emailBody,
+    };
+  
+    transporterBBA.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log("error",error);
+        return res.status(500).send(error.toString());
+      }
+    //   console.log('Email sent: ' + info.response);
+      res.status(200).send('Email sent: ' + info.response);
+    });
+  });
 
 app.post('/upload', (req, res) => {
    
