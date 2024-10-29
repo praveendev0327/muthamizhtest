@@ -163,16 +163,17 @@ app.get('/selectevents', (req, res) => {
 function sendEventToClients(randomEmail) {
   console.log(`Sending event to clients: ${randomEmail}`);
   clientss.forEach(client => {
-        client.write(`data: ${JSON.stringify({ email: randomEmail })}\n\n`);
+        // client.write(`data: ${JSON.stringify({ email: randomEmail })}\n\n`);
+        client.write(`data: ${JSON.stringify({ data: randomEmail })}\n\n`);
     });
 }
 
 // Admin app - fetch random email and trigger event
 app.post('/select-email', (req, res) => {
     // Query to fetch a random email from the autoboard table
-    db.query('SELECT email FROM autoboard ORDER BY RAND() LIMIT 1', (error, results) => {
+    db.query('SELECT * FROM autoboard ORDER BY RAND() LIMIT 1', (error, results) => {
         if (error) throw error;
-        const randomEmail = results[0].email;
+        const randomEmail = results[0];
 
         // Broadcast the random email to all clients
         sendEventToClients(randomEmail);
