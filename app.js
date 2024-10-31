@@ -50,6 +50,8 @@ Dear ${name},
 
 Thank you for registering for our exciting Lucky Draw! We are thrilled to have you on board. Your participation brings us one step closer to an exhilarating event.
 
+This lucky draw is proudly sponsored by the Pannaiyar Team, dedicated to bringing you unique and rewarding experiences. Your participation not only makes this event more special but also supports us in our goal to continue offering memorable experiences and prizes to our community.
+
 Here are the details you need to know:
 
 - **Event Date:** November 3
@@ -65,7 +67,7 @@ Best of luck!
 
 Warm regards,
 
-Muthamil Sangam 
+Pannaiyar Team
 `;
   
     const mailOptions = {
