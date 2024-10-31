@@ -52,6 +52,12 @@ Thank you for registering for our exciting Lucky Draw! We are thrilled to have y
 
 This lucky draw is proudly sponsored by the Pannaiyar Team, dedicated to bringing you unique and rewarding experiences. Your participation not only makes this event more special but also supports us in our goal to continue offering memorable experiences and prizes to our community.
 
+Download the app now and enjoy a 5% discount on your purchase!
+
+ANDROID : https://play.google.com/store/apps/details?id=com.naveensankar.pannaiyar&pcampaignid=web_share
+
+IPHONE :  https://apps.apple.com/in/app/pannaiyar/id6478814248
+
 Here are the details you need to know:
 
 - **Event Date:** November 3
@@ -66,7 +72,6 @@ If you have any questions, feel free to reach out.
 Best of luck!
 
 Warm regards,
-
 Pannaiyar Team
 `;
   
