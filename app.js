@@ -50,19 +50,13 @@ Dear ${name},
 
 Thank you for registering for our exciting Lucky Draw! We are thrilled to have you on board. Your participation brings us one step closer to an exhilarating event.
 
-This lucky draw is proudly sponsored by the Pannaiyar Team, dedicated to bringing you unique and rewarding experiences. Your participation not only makes this event more special but also supports us in our goal to continue offering memorable experiences and prizes to our community.
-
-Download the app now and enjoy a 5% discount on your purchase!
-
-ANDROID : https://play.google.com/store/apps/details?id=com.naveensankar.pannaiyar&pcampaignid=web_share
-
-IPHONE :  https://apps.apple.com/in/app/pannaiyar/id6478814248
+This lucky draw is proudly sponsored by the Samyutha Bhavan Team, dedicated to bringing you unique and rewarding experiences. Your participation not only makes this event more special but also supports us in our goal to continue offering memorable experiences and prizes to our community.
 
 Here are the details you need to know:
 
-- **Event Date:** November 3
-- **Time:** 6 PM
-- **Venue:** Al Nasr Leisureland, Oud Metha Dubai.
+- **Event Date:** Jan 19
+- **Time:** 10 AM to 10 PM
+- **Venue:** Etisalat Academy Sports & Leisure Club, Al - Muhaisnah - Muhaisanah 2, Dubai.
 - **Prize:** Exciting prizes await, including gold coins, gift vouchers, and more!
 
 Stay tuned for more updates as we approach the event date. Don’t miss your chance to win amazing prizes!
@@ -72,7 +66,7 @@ If you have any questions, feel free to reach out.
 Best of luck!
 
 Warm regards,
-Pannaiyar Team
+Samyuktha Bhavan Team
 `;
   
     const mailOptions = {
