@@ -56,7 +56,7 @@ const User = {
     return result.insertId;
   },
   luckydrawRegisterationQuery: async (name, email,  phone) => {
-    const QUERY = `INSERT INTO luckydraw(name, email,  phone) VALUES(?,?,?)`;
+    const QUERY = `INSERT INTO samyuktha(name, email,  phone) VALUES(?,?,?)`;
 
     const result = await db.query(QUERY, [name, email,  phone]);
     return result.insertId;
