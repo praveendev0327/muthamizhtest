@@ -143,7 +143,7 @@ const User = {
   },
 
   findByEmailLuckydrawReg: async (email) => {
-    const sql = "SELECT * FROM luckydraw WHERE email = ?";
+    const sql = "SELECT * FROM samyuktha WHERE email = ?";
     const users = await db.query(sql, [email]);
     return users[0];
   },
