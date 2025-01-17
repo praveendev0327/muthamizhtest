@@ -178,7 +178,7 @@ function sendEventToClients(randomEmail) {
 // Admin app - fetch random email and trigger event
 app.post('/select-email', (req, res) => {
     // Query to fetch a random email from the autoboard table
-    db.query('SELECT * FROM luckydraw ORDER BY RAND() LIMIT 1', (error, results) => {
+    db.query('SELECT * FROM samyuktha ORDER BY RAND() LIMIT 1', (error, results) => {
         if (error) throw error;
         const randomEmail = results[0];
 
