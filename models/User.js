@@ -56,7 +56,7 @@ const User = {
     return result.insertId;
   },
   luckydrawRegisterationQuery: async (name, email,  phone) => {
-    const QUERY = `INSERT INTO samyuktha(name, email,  phone) VALUES(?,?,?)`;
+    const QUERY = `INSERT INTO luckydraw(name, email,  phone) VALUES(?,?,?)`;
 
     const result = await db.query(QUERY, [name, email,  phone]);
     return result.insertId;
@@ -143,7 +143,7 @@ const User = {
   },
 
   findByEmailLuckydrawReg: async (email) => {
-    const sql = "SELECT * FROM samyuktha WHERE email = ?";
+    const sql = "SELECT * FROM luckydraw WHERE email = ?";
     const users = await db.query(sql, [email]);
     return users[0];
   },
@@ -225,6 +225,11 @@ const User = {
 
   delete: async (id) => {
     const sql = "DELETE FROM users WHERE id = ?";
+    const result = await db.query(sql, [id]);
+    return result.affectedRows;
+  },
+  deleteBanner: async (id) => {
+    const sql = "DELETE FROM mvbanners WHERE id = ?";
     const result = await db.query(sql, [id]);
     return result.affectedRows;
   },
