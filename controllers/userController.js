@@ -2,6 +2,7 @@
 const User = require('../models/User');
 const bcrypt = require('../utils/hash');
 
+
 const getAllUsers = async (req, res) => {
   try {
     const users = await User.getAll();
@@ -165,6 +166,25 @@ const deleteUser = async (req, res) => {
   }
 };
 
+const deleteMemberBanners = async (req, res) => {
+  const {id } = req.body;
+
+  try {
+    const affectedRows = await User.deleteBanner(id);
+    if (affectedRows === 0) return res.status(404).json({ message: 'User not found.' });
+
+    res.json({ message: 'User deleted successfully.' });
+  } catch (err) {
+    res.status(500).json({ message: 'Server Error', error: err.message });
+  }
+};
+
+
+
+
+
+
+
 module.exports = {
   getAllUsers,
   getUserById,
@@ -179,5 +199,7 @@ module.exports = {
   getCvByEmail,
   createBannerByEmail,
   createJobPostByEmail,
-  createCvByEmail
+  createCvByEmail,
+  deleteMemberBanners
+  
 };
