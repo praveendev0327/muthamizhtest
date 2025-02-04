@@ -2,8 +2,8 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/auth');
-const { getAllUsers, getUserById, updateUser, deleteUser, searchMember, getAllJobPost, getJobPostByEmail, createMemberProfile, getProfileByEmail, getBannerByEmail, getCvByEmail, createBannerByEmail, createJobPostByEmail, createCvByEmail } = require('../controllers/userController');
-
+const { getAllUsers, getUserById, updateUser, deleteUser, searchMember, getAllJobPost, getJobPostByEmail, createMemberProfile, getProfileByEmail, getBannerByEmail, getCvByEmail, createBannerByEmail, createJobPostByEmail, createCvByEmail, deleteMemberBanners } = require('../controllers/userController');
+const socketIo = require('socket.io');
 // Apply auth middleware to all routes in this router
 router.use(auth);
 
@@ -27,6 +27,12 @@ router.post('/createMemberProfile', createMemberProfile);
 router.post('/createBannerByEmail', createBannerByEmail);
 router.post('/createJobPostByEmail', createJobPostByEmail);
 router.post('/createCvByEmail', createCvByEmail);
+
+//Delete by ID
+router.post('/deleteMemberBanners', deleteMemberBanners);
+
+
+
 
 // @route   GET /api/users/:id
 // @desc    Get user by ID
